@@ -1,0 +1,22 @@
+{
+  "name": "niyati-backend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node -e \"console.log('backend tests ok')\""
+  },
+  "dependencies": {
+    "@imagekit/nodejs": "^7.10.0",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.2.1",
+    "imagekit": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.8.0",
+    "razorpay": "^2.9.8",
+    "socket.io": "^4.8.3"
+  }
+}
