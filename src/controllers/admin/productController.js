@@ -42,6 +42,9 @@ export const createProduct = async (req, res) => {
       isAvailable: isAvailable !== undefined ? Boolean(isAvailable) : true,
     });
 
+    // Emit real-time event so all connected clients refresh instantly
+    if (req.io) req.io.emit('product_added', { productId: product._id, name: product.name });
+
     res.status(201).json({ success: true, message: 'Product created successfully', product });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
@@ -114,6 +117,10 @@ export const updateProduct = async (req, res) => {
       return res.status(404).json({ success: false, message: 'Product not found' });
     }
 
+    // Emit real-time event so all connected clients refresh instantly
+    if (req.io) req.io.emit('product_updated', { productId: id });
+    if (req.io) req.io.emit('stock_updated', { productId: id });
+
     res.json({ success: true, message: 'Product updated successfully', product });
   } catch (error) {
     res.status(400).json({ success: false, message: error.message });
@@ -131,6 +138,10 @@ export const deleteProduct = async (req, res) => {
     if (!product) {
       return res.status(404).json({ success: false, message: 'Product not found' });
     }
+
+    // Emit real-time event so all connected clients refresh instantly
+    if (req.io) req.io.emit('product_deleted', { productId: id });
+    if (req.io) req.io.emit('stock_updated', { productId: id });
 
     res.json({ success: true, message: 'Product deleted successfully' });
   } catch (error) {
