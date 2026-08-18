@@ -18,7 +18,7 @@ export const getImageKitAuth = async (req, res) => {
     const authenticationParameters = imagekit.getAuthenticationParameters();
     res.json({
       ...authenticationParameters,
-      publicKey: process.env.IMAGEKIT_PUBLIC_KEY || 'public_12EI=',
+      publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
     });
   } catch (error) {
     res.status(500).json({ success: false, message: error.message });
