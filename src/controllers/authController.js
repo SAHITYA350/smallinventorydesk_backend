@@ -4,8 +4,8 @@ import generateToken from '../utils/generateToken.js';
 import User from '../models/user.js';
 
 const imagekit = new ImageKit({
-  publicKey: process.env.IMAGEKIT_PUBLIC_KEY || 'public_12EI=',
-  privateKey: process.env.IMAGEKIT_PRIVATE_KEY || 'private_3/5P4lDozb8=',
+  publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
+  privateKey: process.env.IMAGEKIT_PRIVATE_KEY,
   urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT || 'https://ik.imagekit.io/12EI',
 });
 
