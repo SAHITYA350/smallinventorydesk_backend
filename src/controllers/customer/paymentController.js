@@ -24,7 +24,7 @@ export const createRazorpayOrder = async (req, res) => {
 
     res.json({
       success: true,
-      keyId: process.env.RAZORPAY_KEY_ID || 'rzp_test_SuTbMm0NMt6r8b',
+      keyId: process.env.RAZORPAY_KEY_ID,
       razorpayOrder,
     });
   } catch (error) {
